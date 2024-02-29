@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
   <title>Starter for Vite + VueUse + TypeScript</title>
 </head>
+
 <body>
   <div id="app"></div>
+
   <script type="module" src="./src/main.ts"></script>
+
+  <script type="module">
+    import { add, sub } from './src/composables/test1.js';
+
+    console.log(add(1, 2));
+    console.log(sub(1, 2));
+
+  </script>
+
+  <script>
+    console.log('Hello, world!');
+    // import('./src/composables/test1.js')
+    //   .then(module => {
+    //     // 在這裡使用模組
+    //     console.log(module);
+    //   })
+    //   .catch(error => {
+    //     console.error('載入模組失敗：', error);
+    //   });
+
+    async function myImport() {
+      const module = await import('./src/composables/test1.js');
+      console.log(999, module);
+    }
+
+    myImport();
+    console.log('Hello, world! 2');
+    // import('./src/composables/test1.js')
+    // .then(module => {
+    //   // 在這裡使用模組
+    //   console.log(module);
+    // })
+    // .catch(error => {
+    //   console.error('載入模組失敗：', error);
+    // });
+  </script>
 </body>
+
 </html>
